@@ -1,41 +1,49 @@
 <template>
-  <div class="container my-4">
-    <h1 class="text-success my-4">Item Detail</h1>   
-  <div class="row">
-    <div class="col-md-6 col-12">
-      <img :src="item.item_photo" class="w-50 h-100">
-    </div>
-    <div class="col-md-6 col-12">
-      <table class="table">
-        <tr>
-          <td>Name</td>
-          <td>{{item.item_name}}</td>
-        </tr>
-        <tr>
-          <td>Code</td>
-          <td>{{item.item_code}}</td>
-        </tr>
-        <tr>
-          <td>Price</td>
-          <td>{{item.item_price}}</td>
-        </tr>
-        <tr>
-          <td>Discount</td>
-          <td>{{item.item_discount}}%</td>
-        </tr>
-      </table>
-      <div class="text mb-5">
-          <span class="text-success">BRAND:</span>{{item.brand.brand_name}}.{{item.subcategory.subcategory_name}}
-          <p class="text-success">Description:<span class="text-secondary">{{item.item_desc}}</span></p>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-md-12">
+        <h2 class="my-5 text-success">Item Detail</h2>
       </div>
-      <input type="number" name="qty" v-model="qty" class="form-control w-25 d-inline-block" min="1">
-
-      <button class="ml-3 btn btn-info" @click="addToCart()">Add To Cart</button>
+    </div>
+    <div class="row p-0">
+      <div class="col-md-6 col-12 m-0  border-success p-0 rounded-3">
+        <img :src="item.item_photo" style="width:80%;" class="m-0 rounded-3">
+      </div>
+      <div class="col-md-6 col-12 m-0">
+        <table class="table mt-5 text-left table-borderless">
+          <tr>
+            <td>Name</td>
+            <td>{{item.item_name}}</td>
+          </tr>
+          <tr>
+            <td>Code</td>
+            <td>{{item.item_code}}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>{{item.item_price}}</td>
+          </tr>
+          <tr>
+            <td>Discount</td>
+            <td>{{item.item_discount}}%</td>
+          </tr>
+        </table>
+        <p>
+          <span class="mr-2" v-if="item.brand"> 
+            <b-icon icon="tag-fill" variant="success"></b-icon> {{item.brand.brand_name}}
+          </span>
+<!--           <span v-if="item.subcategory">
+            <b-icon icon="tag-fill" variant="dark"></b-icon> {{item.subcategory.subcategory_name}}
+          </span> -->
+        </p>
+        <div class="text-left">
+          <input type="number" name="qty" v-model="qty" class="form-control w-25 d-inline-block" min="1">
+          <button class="ml-3 btn btn-outline-success" @click="addToCart()">Add To Cart</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </template>
-
 
 <script type="text/javascript">
   import ItemService from '@/services/ItemService.js'

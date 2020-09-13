@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row my-3">
       <div class="col-md-12">
-        <h2>Get All Items</h2>
+        <h2 class="text-success my-3">All Item List</h2>
       </div>
     </div>
 

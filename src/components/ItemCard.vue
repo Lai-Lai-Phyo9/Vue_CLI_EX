@@ -1,11 +1,13 @@
 <template>
-  <div class="card">
-    <img :src="item.item_photo" class="card-img-top">
+  <div class="card mb-4 shadow">
+    <div class="card-img-top">
+      <img :src="item.item_photo" class="w-100 h-100">
+    </div>
     <div class="card-body">
-      <h4 class="card-title">{{item.item_name}}</h4>
-      <p class="card-text">{{ item.item_desc }} Some quick example text to build on the card title.</p>
-      <router-link :to="{name: 'item-show', params: { id: item.item_id }}" class="btn btn-primary mr-2">Detail</router-link>
-      <button @click="addToCart()" class="btn btn-info">Add to Cart</button>
+      <h4 class="card-title text-success">{{item.item_name}}</h4>
+      <p class="card-text ">{{ item.item_desc }} is a good taste and healthy food for you.</p>
+      <router-link :to="{name: 'item-show', params: { id: item.item_id }}" class="btn btn-success   mr-2">Detail</router-link>
+      <button @click="addToCart()" class="btn btn-outline-success">Add to Cart</button>
     </div>
   </div>
 </template>
@@ -25,5 +27,19 @@
 </script>
 
 <style type="text/css">
-  
+  .card{
+    transition: .5s;
+  }
+  .card:hover{
+    transform: translateY(-20px);
+  }
+  .card-img-top{
+    overflow: hidden;
+  }
+  .card img{
+    transition: .5s;
+  }
+  .card:hover img{
+    transform: scale(1.1);
+  }
 </style>

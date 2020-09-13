@@ -14,6 +14,7 @@
               <th>No</th>
               <th>Voucherno</th>
               <th>Customer</th>
+              <th>Notes</th>
               <th>Total</th>
               <th>Actions</th>
             </tr>
@@ -41,7 +42,7 @@
       }
     },
     created(){
-      ItemService.getOrders(this.$store.state.token)
+      ItemService.getOrders()
         .then(response => {
           this.orders = response.data.orders
         })

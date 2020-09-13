@@ -1,9 +1,8 @@
 import axios from 'axios'
-
 let token = localStorage.getItem('token')
 
 const apiClient = axios.create({
-  baseURL: 'http://osapi.thetpainghtut.com/api/v1',
+  baseURL: 'http://localhost:8000/api/v1/',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -13,9 +12,11 @@ const apiClient = axios.create({
 })
 
 export default{
+  //index for Exercise.vue
   getItems(){
     return apiClient.get('/items')
   },
+  //detail for Detail.vue
   getItem(id){
     return apiClient.get('/items/'+id)
   },
@@ -29,6 +30,6 @@ export default{
     return apiClient.get('/orders/'+id)
   },
   login(user){
-    return axios.post('http://osapi.thetpainghtut.com/oauth/token',user)
-  }
+    return axios.post('http://localhost:8000/oauth/token',user)
+}
 }
